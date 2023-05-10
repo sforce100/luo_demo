@@ -21,6 +21,8 @@ luo_xinghuo_response_error.md.erb 星火的agent模式递归请求的内容
 ### 简单对话模式
 xh_demo0.rb 简单对话模式demo。例子是闲聊的demo prompt。详细说明在文件内有注释说明。
 xh_demo1.rb 对话模式demo。多轮次带对话历史。例子是闲聊的demo prompt。详细说明在文件内有注释说明。
+openai_demo0.rb 简单对话模式demo。例子是闲聊的demo prompt。详细说明在文件内有注释说明。
+openai_demo1.rb 对话模式demo。多轮次带对话历史。例子是闲聊的demo prompt。详细说明在文件内有注释说明。
 
 ### Agent模式
 核心模块有两个：Agent 和 Runner, 其中Runner支持星火（XinghuoAgentRunner）和openai（OpenAIAgentRunner）
@@ -90,6 +92,12 @@ end
 5. openai_agent_demo1.rb  多个个Agent工具，一个OpenAIAgentRunner。
 6. openai_agent_demo2.rb  多个个Agent工具，多个OpenAIAgentRunner。OpenAIAgentRunner可以嵌套使用。
 
+
+### 运行demo
+> ruby 指定demo文件名。 例如：
+```
+ruby xh_demo0.rb
+```
 
 ## 环境变量配置
 在当前目录下.env文件，运行前请确认环境变量配置正确。
