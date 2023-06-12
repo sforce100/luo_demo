@@ -21,14 +21,23 @@ topic="animal"
 Helpers.load_test(test_file) do |input|
   messages = Messages.create(history: histories).user(prompt: prompt, context: {user_input: input, sentence_rule: rule, talk_topic: topic, user_name: user_name})
 
-  # 请求星火返回数据
+  puts "========================================================"
   puts messages.to_a
+
+  # 请求星火返回数据
   response = Xinghuo.new.chat(messages)
   
   # 打印响应结果
   Helpers.print_md response
 
+  reply = ""
+  response.split("\n").each do |line|
+    if line =~ /^【Spark回复】/
+      reply = line.gsub(/^【Spark回复】\s*(:|：)*/, "")
+    end
+  end
+  
   # 记录历史
-  # histories.user(input)
-  # histories.assistant(response)
+  histories.user(input)
+  histories.assistant(reply)
 end
