@@ -1,0 +1,95 @@
+请根据以下JSON数据结构生成智能家居控制代码：
+
+[ControlColorLight: 灯光控制]
+JSON对象包含以下属性：
+- type (字符串): 固定值 "ambient_light"
+- alias (字符串): 可选值有 "ceiling", "tv", "sofa"
+- power (数字): 1 代表开启, 0 代表关闭
+- set_color (对象): 包含以下子属性：
+- hue (数字): 0-360，表示颜色的色调
+- saturation (数字): 0-100，表示颜色的饱和度
+- lightness (数字): 0-100，表示颜色的亮度
+
+示例输入：
+```json
+{
+    "type": "ambient_light",
+    "alias": "",
+    "power": 1,
+    "set_color": {
+        "hue": 240,
+        "saturation": 100,
+        "lightness": 50
+    }
+}
+```
+
+[ControlCeilingLighting: 主灯控制]
+JSON对象包含以下属性：
+- type (字符串): 固定值 "main_light"
+- alias (字符串): 可选值为 "ceiling"
+- power (数字): 1 代表开启, 0 代表关闭
+- set_brightness (数字): 亮度值，范围1-100
+- set_color_temperature (数字): 色温值，范围2700-6500
+
+示例输入：
+```json
+{
+    "type": "main_light",
+    "alias": "",
+    "power": 1,
+    "set_brightness": 70,
+    "set_color_temperature": 2700
+}
+```
+
+[ControlAirConditioning: 空调控制]
+JSON对象包含以下属性：
+- type (字符串): 固定值 "air"
+- power (数字): 1 代表开启, 0 代表关闭
+- set_temp (数字): 温度值，范围16-30
+- set_wind_swing (数字): 风向设置，0 - 关闭摆风，1 - 上下摆风，2 - 左右摆风
+- set_wind_speed (数字): 风速设置，0 - 自动，1-4 - 风速从低到高
+- set_mode (数字): 模式设置，0 - 制冷模式，1 - 制热模式，2 - 除湿模式
+
+示例输入：
+```json
+{
+    "type": "air",
+    "power": 1,
+    "set_temp": 26,
+    "set_wind_swing": 1,
+    "set_wind_speed": 2,
+    "set_mode": 1
+}
+```
+
+[ControlCurtains: 窗帘控制]
+JSON对象包含以下属性：
+- type (字符串): 固定值 "curtain"
+- set_mode (数字): 模式设置，0 - 关闭（close），1 - 打开（open），2 - 暂停（pause）
+
+示例输入：
+```json
+{
+"type": "curtain",
+"set_mode": 1
+}
+```
+
+[MusicPlayer: 控制白噪音播放]
+JSON对象包含以下属性：
+- type (字符串): 固定值 "music"
+- power (数字): 1 代表开启, 0 代表关闭
+- audio (字符串): 音频设置，可选值有 'bird', 'frog', 'natural', 'rain', 'sea', 'water', 'wind', 'sports', 'study', 'party'
+
+示例输入：
+```json
+{
+  "type": "music",
+  "power": 1,
+  "audio": "natural"
+}
+```
+
+我的问题是: <%= user_input %>。根据我的问题，对应的JSON数组（用markdown的代码块包裹起来）是什么？
