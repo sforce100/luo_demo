@@ -15,7 +15,7 @@ test_file = 'test_data/hello_test.yml'
 
 histories = MemoryHistory.new(max_history)
 Helpers.load_test(test_file) do |input|
-  messages = Messages.create(History: histories).user(prompt: prompt, context: {user_input: input})
+  messages = Messages.create(history: histories).user(prompt: prompt, context: {user_input: input})
 
   # 请求星火返回数据
   response = Xinghuo.new.chat(messages)
